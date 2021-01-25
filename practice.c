@@ -270,6 +270,83 @@ void arms()
     }
     
 }
+
+void revar()
+{
+    int n=0;
+    printf("Enter array size: ");
+    scanf("%d",&n);
+    int a[n];
+    printf("Enter array elements: ");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    //printf("%d",a[0]);
+    printf("Reversing the array.....\n");
+    for(int j = n-1; j >= 0; j--)
+    {
+        printf("%d\t",a[j]);
+    }
+    
+
+}
+
+void adder()
+{
+    int ar[1000],n,ch=0;
+    printf("Enter array size: ");
+    scanf("%d",&n);
+    printf("Enter array elements: ");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&ar[i]);
+    }
+    printf("Want to add more elements:(0 for NO , 1 for YES) ");
+    scanf("%d",&ch);
+    if(ch==1)
+    {
+        int pos=0,val=0;
+        printf("Enter the position: ");
+        scanf("%d",&pos);
+        printf("Enter the value: ");
+        scanf("%d",&val);
+        for(int c = n-1;c>=pos-1;c--)
+        {
+            ar[c+1] = ar[c];    //ar[3] = ar[2] => 3 , ar[2] = ar[1] => 2 , ar[1] = 1
+        }
+        ar[pos-1] = val;    
+    }
+    for(int i=0;i<=n;i++)
+    {
+        printf("%d",ar[i]);
+    }
+}
+void remover()
+{
+    int ar[100],n;
+    printf("Enter the size of array: ");
+    scanf("%d",&n);
+    printf("Enter array elements: ");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&ar[i]);
+    }
+    int pos;
+    printf("Enter the index of element you want to delete: ");
+    scanf("%d",&pos);
+    for (int i = pos; i<n-1; i++)
+    {
+        ar[i] = ar[i+1];
+    }
+    for (int i = 0; i < n-1; i++)
+    {
+        printf("%d",ar[i]);
+    }
+    
+    
+
+}
 int main()
 {
     //mult();
@@ -285,5 +362,8 @@ int main()
    // swap();
    // fibo();
    // pali();
-   arms();
+   // arms();
+   // revar();
+   // adder();
+   remover();
 }
