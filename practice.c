@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<math.h>
+#include<stdlib.h>
 
 void mult()
 {
@@ -344,6 +345,110 @@ void remover()
         printf("%d",ar[i]);
     }
     
+
+}
+void lsar()
+{
+    int ar[100],n;
+    printf("Enter the size of array: ");
+    scanf("%d",&n);
+    printf("Enter array elements: ");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&ar[i]);
+    }
+    int max = ar[0];
+    int min = ar[0];
+    for (int i = 1; i < n; i++)
+    {
+        if(max < ar[i])
+        {
+            max = ar[i];
+        }
+        if(min > ar[i])
+        {
+            min = ar[i];
+        }
+    }
+    printf("Largest element is: %d\n",max);
+    printf("Smallest element is: %d",min);
+    
+}
+void dup() //sorted_array
+{
+    int ar[100],n , nar[100];
+    printf("Enter the size of array: ");
+    scanf("%d",&n);
+    printf("Enter array elements: ");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&ar[i]);
+    }
+    int j=0;
+    for(int i=0;i<n-1;i++)
+    {
+        if(ar[i]!=ar[i+1])
+        {
+            nar[j] = ar[i];         // i=1 nar[0]=ar[1]=>1   i=2 nar[1] = ar[2] => 
+            j++;
+        }
+        
+    }
+    nar[j] = ar[n-1];
+    for (int i = 0; i < n-1 ; i++)
+    {
+        printf("%d",nar[i]);
+    }
+
+}
+//========================================Matrics==============================
+
+void sym()
+{
+    int a[100][100],b[100][100] , m ,n;
+    printf("Enter number of rows: ");
+    scanf("%d",&m);
+    printf("Enter number of columns: ");
+    scanf("%d",&n);
+    if(m==n)
+    {
+        for (int i = 0; i < m; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                printf("Enter value for a[%d][%d]: ",i,j);
+                scanf("%d",&a[i][j]);
+            }
+            
+        }
+
+        for (int i = 0; i < m; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                b[j][i] = a[i][j];
+            }
+            
+        }
+
+        for (int i = 0; i < m; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                printf("b[%d][%d]: %d\n",i,j,b[i][j]);
+            }
+            
+        }
+        
+        
+        
+    }
+
+    else
+    {
+        printf("can't process non-square matrics!");
+        exit(-1);
+    }
     
 
 }
@@ -365,5 +470,8 @@ int main()
    // arms();
    // revar();
    // adder();
-   remover();
+   // remover();
+   // lsar();
+  //dup(); //I am still with confused with this , I don't know why ........
+  sym();
 }
