@@ -562,17 +562,33 @@ void sum_m()
                 printf("Enter value for b[%d][%d]: ",i,j);
                 scanf("%d",&b[i][j]);
                 a[i][j] = a[i][j] + b[i][j];
+                b[i][j] = a[i][j] - b[i][j];
             }
         }
+        printf("Sum of the two matrices : \n");
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
         {
             printf("%d\t",a[i][j]);
-            printf("\n");
         }
+
+        printf("\n");
         
     }
+
+    printf("Difference of the two matrices : \n");
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            printf("%d\t",b[i][j]);
+        }
+
+        printf("\n");
+        
+    }
+
     
 
 }
