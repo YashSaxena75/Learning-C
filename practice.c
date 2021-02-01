@@ -405,7 +405,7 @@ void dup() //sorted_array
 
 void sym()
 {
-    int a[100][100],b[100][100] , m ,n;
+    int a[100][100],b[100][100] , m ,n ,c=0;
     printf("Enter number of rows: ");
     scanf("%d",&m);
     printf("Enter number of columns: ");
@@ -440,6 +440,26 @@ void sym()
             
         }
         
+        for(int i=0;i<m;i++)
+        {
+			for(int j=0;j<n;j++)
+			{
+				if(a[i][j]==b[i][j])
+				{
+					c++;
+				}
+			}
+		}
+		
+		if(c==m*n)
+		{
+			printf("Symmetric");
+		}
+		else
+		{
+			printf("Not symmetric");
+		}
+		
         
         
     }
@@ -448,6 +468,110 @@ void sym()
     {
         printf("can't process non-square matrics!");
         exit(-1);
+    }
+    
+
+}
+
+void spa()
+{
+	
+	int a[100][100],b=0 , m ,n ,c=0;
+    printf("Enter number of rows: ");
+    scanf("%d",&m);
+    printf("Enter number of columns: ");
+    scanf("%d",&n);
+    for (int i = 0; i < m; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                printf("Enter value for a[%d][%d]: ",i,j);
+                scanf("%d",&a[i][j]);
+                if(a[i][j]==0)
+				{
+					c++;
+				}
+				else if(a[i][j]>0)
+				{
+					b++;
+				}
+            }
+            
+        }
+        
+	if(c>b)
+	{
+		printf("This is sparse matrix");
+	}
+	else
+	{
+		printf("This is not a sparse matrix");
+	}
+   
+}
+
+void tnm()
+{
+    int a[100][100],b=0 , m ,n ,trace=0,normal=0;
+    printf("Enter number of rows: ");
+    scanf("%d",&m);
+    printf("Enter number of columns: ");
+    scanf("%d",&n);
+    if(m==n)
+    {
+    for (int i = 0; i < m; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                printf("Enter value for a[%d][%d]: ",i,j);
+                scanf("%d",&a[i][j]);
+                normal = normal + (a[i][j]*a[i][j]);
+
+            }
+        }
+        int sum=0;
+        while(sum<=n)
+        {
+            trace = trace + a[sum][sum];
+            sum++;
+        }
+        double nom = sqrt(normal);
+        printf("Trace of the matrix is : %d\n",trace);
+        printf("Normal of the matrix is: %f",nom);
+    }
+    else
+    {
+        printf("We can't find the normal and trace of a non-square matrix !");
+    }
+        
+}
+
+void sum_m()
+{
+    int a[100][100],b[100][100] , m ,n ;
+    printf("Enter number of rows: ");
+    scanf("%d",&m);
+    printf("Enter number of columns: ");
+    scanf("%d",&n);
+    for (int i = 0; i < m; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                printf("Enter value for a[%d][%d]: ",i,j);
+                scanf("%d",&a[i][j]);
+                printf("Enter value for b[%d][%d]: ",i,j);
+                scanf("%d",&b[i][j]);
+                a[i][j] = a[i][j] + b[i][j];
+            }
+        }
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            printf("%d\t",a[i][j]);
+            printf("\n");
+        }
+        
     }
     
 
@@ -473,5 +597,8 @@ int main()
    // remover();
    // lsar();
   //dup(); //I am still with confused with this , I don't know why ........
-  sym();
+  // sym();
+	// spa();
+    //tnm();
+    sum_m();
 }
