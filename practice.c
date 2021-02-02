@@ -588,8 +588,73 @@ void sum_m()
         printf("\n");
         
     }
+}
 
+void m_mat()
+{
+    int a[100][100],b[100][100] , m ,n ,o,p,sum=0,i=0,j=0,k=0;
+    printf("Enter number of rows: ");
+    scanf("%d",&m);
+    printf("Enter number of columns: ");
+    scanf("%d",&n);
+    for (i = 0; i < m; i++)
+        {
+            for (j = 0; j < n; j++)
+            {
+                printf("Enter value for a[%d][%d]: ",i,j);
+                scanf("%d",&a[i][j]);
+                
+            }
+            
+        }
+    printf("Enter number of rows: ");
+    scanf("%d",&o);
+    printf("Enter number of columns: ");
+    scanf("%d",&p);
+    for (i = 0; i < o; i++)
+        {
+            for (j = 0; j < p; j++)
+            {
+                printf("Enter value for b[%d][%d]: ",i,j);
+                scanf("%d",&b[i][j]);
+                
+            }
+            // 2x3 -> 3x2 : 2x3
+        }
+    int c[m][p];
+    if(n==o)
+    {
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<p;j++)
+        {
+            for(k=0;k<n;k++)
+            {
+                sum += a[i][k]*b[k][j];
+            }
+            c[i][j]=sum;
+            sum=0;
+
+        }
+    }
+    }
+    else
+    {
+        printf("Can't multiply these matrices.");
+        exit(-1);
+    }
     
+        printf("Multiplication of matrices is :\n ");
+    for (i = 0; i < m; i++)
+    {
+        for ( j = 0; j < p; j++)
+        {
+            printf("%d",c[i][j]);
+            printf("\t");
+        }
+        printf("\n");
+        
+    }    
 
 }
 int main()
@@ -616,5 +681,6 @@ int main()
   // sym();
 	// spa();
     //tnm();
-    sum_m();
+   // sum_m();
+   m_mat();
 }
